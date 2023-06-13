@@ -1,2 +1,0 @@
-# basicTemplate_vue3
-basicTemplate_vue3
