@@ -2,7 +2,7 @@
   <el-config-provider :locale="locale" :size="assemblySize" :button="buttonConfig">
     <router-view></router-view>
   </el-config-provider>
-</template>
+</template> 
 
 <script setup lang="ts">
 import { onMounted, reactive, computed } from 'vue'
