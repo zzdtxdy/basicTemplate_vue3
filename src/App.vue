@@ -1,4 +1,5 @@
 <template>
+  <!-- 配置全局默认主题、语言 组件大小 -->
   <el-config-provider :locale="locale" :size="assemblySize" :button="buttonConfig">
     <router-view></router-view>
   </el-config-provider>

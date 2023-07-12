@@ -5,7 +5,6 @@ import axios, {
   type AxiosResponse,
   type InternalAxiosRequestConfig
 } from 'axios'
-import { ElMessage } from 'element-plus'
 import { showFullScreenLoading, tryHideFullScreenLoading } from '@/config/serviceLoading'
 import { useUserStore } from '@/stores/modules/user'
 import { LOGIN_URL } from '@/config/'
@@ -18,7 +17,7 @@ import { PORT1 } from '@/api/config/servicePort'
 /* axios 配置 */
 const config = {
   // 默认地址请求地址，可在 .env.** 文件中修改
-  baseURL: import.meta.env.VITE_BASE_URL, // url = base url + request url
+  baseURL: import.meta.env.VITE_API_URL, // url = base url + request url
   timeout: 20 * 5000, // 设置超时时间（10s）
   withCredentials: true //跨域携带cookie
 }

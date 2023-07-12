@@ -17,6 +17,17 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()] //自动导入element-plus
     })
   ],
+  // 跨域
+  server: {
+    cors: true, // 默认启用并允许任何源
+    proxy: {
+      '/api': {
+        target: 'https://mock.mengxuegu.com/mock/629d727e6163854a32e8307e',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

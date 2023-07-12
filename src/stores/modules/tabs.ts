@@ -3,8 +3,8 @@ import type { TabsState, TabsMenuProps } from '@/stores/interface'
 import piniaPersistConfig from '@/config/piniaPersist'
 import router from '@/routers/index'
 
-// TabsStore
-export const TabsStore = defineStore({
+// useTabsStore
+export const useTabsStore = defineStore({
   id: 'TabsState',
   state: (): TabsState => ({
     tabsMenuList: []

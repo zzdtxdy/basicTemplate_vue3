@@ -4,6 +4,8 @@
     "useDefineForClassFields": true,
     "module": "ESNext", // 生成代码的模板标准
     "moduleResolution": "Node", // 模块解析策略，ts默认用node的解析策略，即相对的方式导入
+    // vite/client 这个类型声明允许你在代码中使用 Vite 特定的类型，比如 import.meta 对象和运行时环境变量
+    //element-plus/global 这个类型声明允许你在代码中使用 Element Plus 组件的类型，以获得类型检查和自动补全的支持。
     "types": ["vite/client", "element-plus/global"],
 
     /* Strict Type-Checking Options */
@@ -30,6 +32,7 @@
       "@/*": ["src/*"]
     }
   },
+  //如果不是在src下或src文件下的xx.d.ts文件则需要在tsconfig.json中配置
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",

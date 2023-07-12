@@ -122,6 +122,8 @@ export function getTimeState() {
  * @returns {String}
  */
 export function getBrowserLang() {
+  //navigator.language 由标准的语言标签（如 “en-US”、“zh-CN” 等）表示。基于用户操作系统设置或浏览器设置得出的。
+  //navigator.browserLanguage 是非标准的属性，在某些浏览器中可能存在。但是它返回的是一个用户浏览器设置的语言标签（如 “en”、“zh” 等）
   let browserLang = navigator.language ? navigator.language : navigator.browserLanguage
   let defaultBrowserLang = ''
   if (['cn', 'zh', 'zh-cn'].includes(browserLang.toLowerCase())) {
