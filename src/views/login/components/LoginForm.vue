@@ -29,7 +29,7 @@ import { useRouter } from 'vue-router'
 import { Login } from '@/api/interface'
 import { ElNotification } from 'element-plus'
 import { loginApi } from '@/api/modules/login'
-import { getTimeState } from '@/utils/util'
+import { getTimeState } from '@/utils'
 import { HOME_URL } from '@/config/'
 import { initDynamicRouter } from '@/routers/modules/dynamicRouter'
 import { CircleClose, UserFilled } from '@element-plus/icons-vue'
@@ -95,3 +95,4 @@ onMounted(() => {
 <style scoped lang="scss">
 @import '../index.scss';
 </style>
+@/utils

@@ -8,7 +8,7 @@
 import { onMounted, reactive, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { getBrowserLang } from '@/utils'
-import { useTheme } from '@/hooks/useTheme'
+// import { useTheme } from '@/hooks/useTheme'
 import { ElConfigProvider } from 'element-plus'
 import { LanguageType } from './stores/interface'
 import { useGlobalStore } from '@/stores/modules/global'
@@ -19,14 +19,14 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 const globalStore = useGlobalStore()
 
 // init theme
-const { initTheme } = useTheme()
-initTheme()
+// const { initTheme } = useTheme()
+// initTheme()
 
 // init language
 const i18n = useI18n()
 onMounted(() => {
   const language = globalStore.language ?? getBrowserLang()
-  i18n.locale.value = language
+  i18n.locale.value = language //设置默认语言
   globalStore.setGlobalState('language', language as LanguageType)
 })
 

@@ -7,13 +7,12 @@
     flex-shrink: 0;
     width: 70px;
     height: 100%;
-    background-color: #191a20;
-    border-right: 1px solid #ffffff;
+    background-color: var(--el-menu-bg-color);
+    border-right: 1px solid var(--el-aside-border-color);
     .logo {
       box-sizing: border-box;
       height: 55px;
-      border-bottom: 1px solid #282a35;
-      img {
+      .logo-img {
         width: 32px;
         object-fit: contain;
       }
@@ -30,43 +29,44 @@
           height: 70px;
           cursor: pointer;
           transition: all 0.3s ease;
-          &:hover {
-            background-color: #292b35;
-          }
           .el-icon {
-            font-size: 21px;
+            font-size: 20px;
           }
           .title {
             margin-top: 6px;
             font-size: 12px;
-            transform: scale(0.96);
           }
           .el-icon,
           .title {
-            color: #e5eaf3;
+            color: var(--el-menu-text-color);
           }
         }
         .split-active {
-          background-color: $primary-color !important;
+          background-color: var(--el-color-primary) !important;
           .el-icon,
           .title {
-            color: #ffffff;
+            color: #ffffff !important;
           }
         }
       }
     }
+  }
+  .not-aside {
+    width: 0 !important;
+    border-right: none !important;
   }
   .el-aside {
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    background-color: #ffffff;
-    border-right: 1px solid #f0eded;
-    transition: all 0.3s ease;
+    background-color: var(--el-menu-bg-color);
+    border-right: 1px solid var(--el-aside-border-color);
+    transition: width 0.3s ease;
     .el-scrollbar {
       height: calc(100% - 55px);
       .el-menu {
+        width: 100%;
         overflow-x: hidden;
         border-right: none;
       }
@@ -74,17 +74,13 @@
     .logo {
       box-sizing: border-box;
       height: 55px;
-      border-bottom: 1px solid #f0eded;
-      span {
+      .logo-text {
         font-size: 24px;
         font-weight: bold;
-        color: var(--el-menu-text-color);
+        color: var(--el-aside-logo-text-color);
         white-space: nowrap;
       }
     }
-  }
-  .not-aside {
-    width: 0 !important;
   }
   .el-header {
     box-sizing: border-box;
@@ -93,13 +89,7 @@
     justify-content: space-between;
     height: 55px;
     padding: 0 15px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #f1f1f1;
-    :deep(.tool-bar-ri) {
-      .toolBar-icon,
-      .username {
-        color: var(--el-text-color-primary);
-      }
-    }
+    background-color: var(--el-header-bg-color);
+    border-bottom: 1px solid var(--el-border-color-light);
   }
 }

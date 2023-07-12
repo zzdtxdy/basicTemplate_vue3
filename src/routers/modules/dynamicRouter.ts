@@ -1,21 +1,22 @@
 import router from '@/routers/index'
-import { isType } from '@/utils/util'
 import { LOGIN_URL } from '@/config'
+import { RouteRecordRaw } from 'vue-router'
 import { ElNotification } from 'element-plus'
-import { GlobalStore } from '@/stores'
-import { AuthStore } from '@/stores/modules/auth'
+import { useUserStore } from '@/stores/modules/user'
+import { useAuthStore } from '@/stores/modules/auth'
 
 // 引入 views 文件夹下所有 vue 文件
 const modules = import.meta.glob('@/views/**/*.vue')
 
 /**
- * 初始化动态路由
+ * @description 初始化动态路由
  */
 export const initDynamicRouter = async () => {
-  const authStore = AuthStore()
-  const globalStore = GlobalStore()
+  const userStore = useUserStore()
+  const authStore = useAuthStore()
+
   try {
-    // 1.获取菜单列表 && 按钮权限（可合并到一个接口获取，根据后端不同可自行改造）
+    // 1.获取菜单列表 && 按钮权限列表
     await authStore.getAuthMenuList()
     await authStore.getAuthButtonList()
 
@@ -27,29 +28,29 @@ export const initDynamicRouter = async () => {
         type: 'warning',
         duration: 3000
       })
-      globalStore.setToken('')
+      userStore.setToken('')
       router.replace(LOGIN_URL)
       return Promise.reject('No permission')
     }
 
     // 3.添加动态路由
-    authStore.flatMenuListGet.forEach((item: any) => {
-      //删除children
+    authStore.flatMenuListGet.forEach((item) => {
       item.children && delete item.children
-      //组件路径 component: "/dataScreen/index"
-      if (item.component && isType(item.component) == 'string') {
+      console.log(authStore.flatMenuListGet)
+      console.log(modules)
+
+      if (item.component && typeof item.component == 'string') {
         item.component = modules['/src/views' + item.component + '.vue']
       }
-      //是否全屏展示
       if (item.meta.isFull) {
-        router.addRoute(item)
+        router.addRoute(item as unknown as RouteRecordRaw)
       } else {
-        router.addRoute('layout', item)
+        router.addRoute('layout', item as unknown as RouteRecordRaw)
       }
     })
   } catch (error) {
-    // 💢 当按钮 || 菜单请求出错时，重定向到登陆页
-    globalStore.setToken('')
+    // 当按钮 || 菜单请求出错时，重定向到登陆页
+    userStore.setToken('')
     router.replace(LOGIN_URL)
     return Promise.reject(error)
   }
