@@ -28,6 +28,7 @@ export const useAuthStore = defineStore({
   actions: {
     // Get AuthButtonList
     async getAuthButtonList() {
+      debugger
       const { data } = await getAuthButtonListApi()
       this.authButtonList = data
     },

@@ -1,0 +1,31 @@
+{
+  "header": {
+    "changePassword": "Change Password",
+    "componentSize": "Component size",
+    "darkMode": "Dark Mode",
+    "exitFullScreen": "Exit Full Screen",
+    "fullScreen": "Full Screen",
+    "greyMode": "Grey mode",
+    "language": "Language",
+    "layoutConfig": "Layout config",
+    "logout": "Logout",
+    "personalData": "Personal Data",
+    "primary": "primary",
+    "theme": "theme",
+    "weakMode": "Weak mode"
+  },
+  "home": {
+    "welcome": "Welcome"
+  },
+  "login": {
+    "logIn": "Log in"
+  },
+  "tabs": {
+    "closeAll": "Close All",
+    "closeCurrent": "Close current",
+    "closeOther": "Close other",
+    "maximize": "Maximize",
+    "more": "More",
+    "refresh": "Refresh"
+  }
+}

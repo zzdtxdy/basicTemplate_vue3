@@ -67,7 +67,7 @@ pnpm build:dev
 pnpm build:test
 
 # 生产环境
-pnpm build:pro
+pnpm build:prod
 ```
 
 - **Lint：**

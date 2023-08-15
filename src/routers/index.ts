@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
 import { useAuthStore } from '@/stores/modules/auth'
 import { LOGIN_URL, ROUTER_WHITE_LIST } from '@/config'
@@ -23,7 +23,7 @@ import NProgress from '@/config/nprogress'
  * @param meta.isKeepAlive ==> 当前路由是否缓存
  * */
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [...staticRouter, ...errorRouter],
   //当路由切换时，页面通常会有滚动条，并且会自动将滚动条位置还原到之前的状态。但是有时候我们希望在切换路由时自定义滚动行为，例如：设置滚动位置、平滑滚动等。
   scrollBehavior: () => ({ left: 0, top: 0 })

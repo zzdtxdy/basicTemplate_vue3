@@ -41,6 +41,6 @@
     "build/**/*.ts",
     "build/**/*.d.ts",
     "vite.config.ts"
-  ],
+, "src/languages/modules/zh.ts", "src/languages/modules/en.ts"  ],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }

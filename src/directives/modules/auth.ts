@@ -12,7 +12,7 @@ const permission: Directive = {
     const authStore = useAuthStore()
     // 获取当前路由下用户的权限按钮
     const currentPageRoles = authStore.authButtonListGet[authStore.routeName] ?? []
-    // 判断是数组 v-auth="['add', 'edit']"  v-auth="'add'"
+    // 判断是数组 v-auth="['add', 'edit']" 还是字符串 v-auth="'add'"
     if (value instanceof Array && value.length) {
       const hasPermission = value.every((item) => currentPageRoles.includes(item))
       if (!hasPermission) el.remove()
